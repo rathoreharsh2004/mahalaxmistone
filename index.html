@@ -1,351 +1,800 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#171512">
-<meta name="description" content="S K Furniture — premium furniture and interior solutions.">
-<title>S K Furniture | Premium Furniture & Interiors</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#171512;--ink2:#211e19;--cream:#f5f0e8;--cream2:#e9dfd0;
-  --gold:#b58a4a;--gold2:#d8bb86;--muted:#aaa29a;--line:rgba(255,255,255,.12);
-  --shadow:0 28px 80px rgba(0,0,0,.30)
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"DM Sans",sans-serif;background:var(--ink);color:#fff;overflow-x:hidden;line-height:1.6}
-a{text-decoration:none;color:inherit}
-img{display:block;width:100%}
-button{font:inherit}
-.container{width:min(1180px,92%);margin:auto}
-.section{padding:105px 0}
-.dark{background:var(--ink)}
-.dark2{background:var(--ink2)}
-.cream{background:var(--cream);color:var(--ink)}
-.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);font-weight:800;margin-bottom:15px}
-h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.04}
-h1{font-size:clamp(3.4rem,8vw,7.4rem);letter-spacing:-.055em}
-h2{font-size:clamp(2.3rem,5vw,4.6rem);letter-spacing:-.04em}
-h3{font-size:1.55rem}
-.gold{color:var(--gold2)}
-.section-head{max-width:780px;margin-bottom:52px}
-.section-head p{color:var(--muted);max-width:650px;margin-top:18px}
-.cream .section-head p{color:#716a61}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahalaxmi Stones | Premium Limestone, Kadapa Black & Natural Stones</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stoneDark: '#121212',
+                        stoneCard: '#1a1a1a',
+                        stoneBorder: '#2e2e2e',
+                        goldAccent: '#d4af37',
+                        goldLight: '#f3e5ab'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scroll reveal initial states */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Magnetic button styles */
+        .magnetic-btn {
+            transition: transform 0.2s cubic-bezier(0.1, 0.7, 0.1, 1);
+        }
 
-.topbar{position:absolute;z-index:20;top:0;left:0;width:100%;border-bottom:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(0,0,0,.5),transparent);backdrop-filter:blur(6px)}
-.nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-mark{width:48px;height:48px;border:1px solid rgba(216,187,134,.65);border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display";font-size:1.1rem;color:var(--gold2);background:rgba(0,0,0,.28)}
-.logo strong{font-family:"Playfair Display";font-size:1.12rem}
-.logo small{display:block;color:#aaa;font:500 .58rem "DM Sans";letter-spacing:.16em;text-transform:uppercase}
-.navlinks{display:flex;gap:26px;color:#ddd;font-size:.88rem}
-.navlinks a{transition:.25s}.navlinks a:hover{color:var(--gold2)}
-.menu{display:none;background:none;border:0;color:#fff;font-size:1.55rem;cursor:pointer}
-
-.hero{min-height:100svh;position:relative;display:flex;align-items:end;overflow:hidden;background:#111}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s,transform 7s}
-.hero-bg img.active{opacity:1;transform:scale(1)}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,7,.88),rgba(10,9,7,.40) 58%,rgba(10,9,7,.30)),linear-gradient(0deg,rgba(8,7,5,.9),transparent 48%)}
-.hero-content{position:relative;z-index:2;padding:160px 0 72px;max-width:880px}
-.hero h1 span{color:var(--gold2)}
-.hero-copy{max-width:690px;color:#ddd;font-size:1.08rem;margin:25px 0 32px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 21px;border-radius:999px;border:1px solid rgba(216,187,134,.55);font-weight:700;font-size:.88rem;transition:.3s;cursor:pointer}
-.btn.primary{background:var(--gold);border-color:var(--gold);color:#18130c}
-.btn.ghost{background:rgba(255,255,255,.04)}
-.btn:hover{box-shadow:0 18px 38px rgba(0,0,0,.28)}
-.hero-meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:38px;color:#bbb;font-size:.78rem}
-.hero-meta b{display:block;color:var(--gold2);font:600 1.1rem "Playfair Display"}
-.scroll-cue{position:absolute;right:4%;bottom:35px;z-index:3;writing-mode:vertical-rl;font-size:.65rem;letter-spacing:.25em;color:#c9c2b8;text-transform:uppercase}
-
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{border:1px solid rgba(30,25,20,.13);border-radius:22px;padding:29px;background:rgba(255,255,255,.36);min-height:245px;transition:.4s}
-.card:hover{transform:translateY(-8px);background:#fff;box-shadow:0 25px 55px rgba(50,35,15,.10)}
-.card-icon{width:50px;height:50px;border-radius:15px;background:#17130e;color:var(--gold2);display:grid;place-items:center;font-size:1.35rem;margin-bottom:24px}
-.card h3{margin-bottom:10px}.card p{font-size:.9rem;color:#756d63}
-
-.split{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
-.media{border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
-.media img{height:620px;object-fit:cover}
-.copy p{color:var(--muted);margin:18px 0}
-.points{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:28px 0}
-.point{border:1px solid var(--line);border-radius:16px;padding:17px;background:rgba(255,255,255,.025)}
-.point b{display:block;margin-bottom:4px}.point span{font-size:.78rem;color:#8f8981}
-
-.collection{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.item{position:relative;overflow:hidden;border-radius:21px;min-height:300px}
-.item img{height:100%;object-fit:cover;transition:.7s}
-.item:hover img{transform:scale(1.07)}
-.item:nth-child(1){grid-column:span 7;grid-row:span 2}
-.item:nth-child(2),.item:nth-child(3){grid-column:span 5}
-.item:nth-child(4),.item:nth-child(5),.item:nth-child(6){grid-column:span 4}
-.item-label{position:absolute;left:15px;bottom:15px;padding:8px 12px;border-radius:99px;background:rgba(0,0,0,.62);backdrop-filter:blur(9px);border:1px solid rgba(255,255,255,.16);font-size:.72rem}
-
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.step{border-top:1px solid var(--line);padding-top:17px}
-.step-no{color:var(--gold2);font-size:.72rem;font-weight:800;letter-spacing:.18em}
-.step h3{margin:17px 0 8px}.step p{color:var(--muted);font-size:.86rem}
-
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stat{padding:30px;border-right:1px solid var(--line)}.stat:last-child{border-right:0}
-.stat strong{font:600 2.8rem "Playfair Display";color:var(--gold2)}.stat span{display:block;color:#999;font-size:.78rem;margin-top:5px}
-
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.review{padding:29px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
-.stars{color:var(--gold2);letter-spacing:3px;margin-bottom:18px}
-.review p{color:#d0cbc3;font-size:.91rem}.reviewer{display:flex;align-items:center;gap:12px;margin-top:24px}
-.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#8e6730,#ead09b);display:grid;place-items:center;color:#241a0e;font-weight:800}
-.reviewer span{display:block;color:#888;font-size:.73rem}
-
-.faq{max-width:900px}.faq-item{border-bottom:1px solid rgba(255,255,255,.13)}
-.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;border:0;background:none;color:#fff;text-align:left;font-weight:700;cursor:pointer}
-.faq-q i{font-style:normal;color:var(--gold2);font-size:1.45rem;transition:.3s}
-.faq-a{max-height:0;overflow:hidden;color:#9d988f;transition:max-height .45s,padding .45s}
-.faq-item.open .faq-a{max-height:180px;padding-bottom:22px}.faq-item.open .faq-q i{transform:rotate(45deg)}
-
-.contact{display:grid;grid-template-columns:.78fr 1.22fr;gap:20px}
-.contact-card{padding:32px;border-radius:25px;background:#15130f;border:1px solid var(--line)}
-.contact-card h3{font-size:2.1rem}.contact-card>p{color:#999;margin:12px 0 25px}
-.contact-links{display:grid;gap:12px}.contact-links a{padding:14px;border:1px solid var(--line);border-radius:15px;color:#ddd;transition:.25s}.contact-links a:hover{color:var(--gold2);border-color:rgba(216,187,134,.5)}
-.map{min-height:450px;border-radius:25px;overflow:hidden;border:1px solid var(--line)}.map iframe{width:100%;height:100%;border:0;filter:grayscale(.25) contrast(1.05)}
-
-.footer{padding:36px 0;border-top:1px solid var(--line);color:#888}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer b{color:#ddd}.footer small{display:block;margin-top:5px}.footer a{color:#ddd}
-.floaters{position:fixed;right:22px;bottom:22px;z-index:50;display:grid;gap:10px}.fab{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 15px 35px rgba(0,0,0,.4);transition:.25s;border:1px solid rgba(255,255,255,.16)}.fab:hover{transform:translateY(-4px) scale(1.04)}.fab svg{width:25px;height:25px}.fab.call{background:#f5f0e8;color:#16130f}.fab.wa{background:#20bd67;color:#fff}
-
-.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-.cursor{position:fixed;width:17px;height:17px;border:1px solid var(--gold2);border-radius:50%;z-index:100;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference;display:none}
-@media(min-width:1000px){.cursor{display:block}}
-@media(max-width:900px){
- .navlinks{display:none}.menu{display:block}.navlinks.show{display:flex;position:absolute;top:72px;left:4%;right:4%;flex-direction:column;padding:18px;background:rgba(18,16,13,.98);border:1px solid var(--line);border-radius:18px}
- .services,.reviews{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.media img{height:500px}.process{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.contact{grid-template-columns:1fr}.map{min-height:360px}
-}
-@media(max-width:620px){
- .section{padding:75px 0}.logo strong{font-size:.95rem}.hero-content{padding:140px 0 55px}.hero-meta{gap:17px}.services,.reviews,.process{grid-template-columns:1fr}.points{grid-template-columns:1fr}.collection{grid-template-columns:1fr 1fr}.item,.item:nth-child(n){grid-column:span 1;grid-row:span 1;min-height:190px}.item:nth-child(1){grid-column:span 2}.stats{grid-template-columns:1fr 1fr}.stat{padding:22px 15px}.stat strong{font-size:2rem}.footer-inner{flex-direction:column}.scroll-cue{display:none}
-}
-</style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-stoneDark text-gray-200 font-sans antialiased selection:bg-goldAccent selection:text-black">
 
-<div class="cursor"></div>
+    <!-- Header / Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-stoneDark/90 backdrop-blur-md border-b border-stoneBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-goldAccent to-goldLight flex items-center justify-center text-black font-bold font-serif text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    M
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-serif font-bold tracking-wider text-white">MAHALAXMI</span>
+                    <span class="block text-xs uppercase tracking-widest text-goldAccent font-semibold">Stones & Minerals</span>
+                </div>
+            </a>
 
-<header class="topbar">
-  <div class="container nav">
-    <a class="logo" href="#home">
-      <div class="logo-mark">SK</div>
-      <div><strong>S K Furniture</strong><small>Furniture • Interiors</small></div>
-    </a>
-    <nav class="navlinks">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#collection">Collection</a>
-      <a href="#process">Process</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="menu" aria-label="Open navigation">☰</button>
-  </div>
-</header>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-goldAccent transition-colors">Home</a>
+                <a href="#about" class="hover:text-goldAccent transition-colors">About Us</a>
+                <a href="#products" class="hover:text-goldAccent transition-colors">Collection</a>
+                <a href="#why-us" class="hover:text-goldAccent transition-colors">Why Us</a>
+                <a href="#reviews" class="hover:text-goldAccent transition-colors">Reviews</a>
+                <a href="#faq" class="hover:text-goldAccent transition-colors">FAQ</a>
+                <a href="#contact" class="hover:text-goldAccent transition-colors">Contact</a>
+            </nav>
 
-<main>
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <img class="active" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=88" alt="Premium living room furniture">
-    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=88" alt="Luxury furniture interior">
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=88" alt="Modern designer furniture">
-    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=88" alt="Premium bedroom interior">
-  </div>
-  <div class="container hero-content reveal">
-    <div class="eyebrow">Premium Furniture • Interiors • Custom Design</div>
-    <h1>Furniture that <span>defines</span> the room.</h1>
-    <p class="hero-copy">Elegant furniture and thoughtfully designed interiors for homes, offices and spaces that deserve a refined finish — from statement pieces to complete room solutions.</p>
-    <div class="actions">
-      <a class="btn primary magnetic" href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20to%20discuss%20furniture%20or%20interior%20work." target="_blank">WhatsApp Us ↗</a>
-      <a class="btn ghost magnetic" href="#collection">Explore Collection ↓</a>
+            <!-- Action button & Mobile menu toggle -->
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/919351708424?text=Hello%20Mahalaxmi%20Stones,%20I%20would%20like%20to%20inquire%20about%20your%20stone%20collection." target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-goldAccent to-yellow-600 hover:from-yellow-500 hover:to-goldAccent text-black font-semibold px-5 py-2.5 rounded-full shadow-lg transition-all duration-300 hover:shadow-goldAccent/20">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Get Quote</span>
+                </a>
+                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stoneDark/95 border-b border-stoneBorder px-6 py-6 space-y-4">
+            <a href="#home" class="block text-lg hover:text-goldAccent transition-colors mobile-link">Home</a>
+            <a href="#about" class="block text-lg hover:text-goldAccent transition-colors mobile-link">About Us</a>
+            <a href="#products" class="block text-lg hover:text-goldAccent transition-colors mobile-link">Collection</a>
+            <a href="#why-us" class="block text-lg hover:text-goldAccent transition-colors mobile-link">Why Us</a>
+            <a href="#reviews" class="block text-lg hover:text-goldAccent transition-colors mobile-link">Reviews</a>
+            <a href="#faq" class="block text-lg hover:text-goldAccent transition-colors mobile-link">FAQ</a>
+            <a href="#contact" class="block text-lg hover:text-goldAccent transition-colors mobile-link">Contact</a>
+            <div class="pt-4 border-t border-stoneBorder flex flex-col space-y-3">
+                <a href="https://wa.me/919351708424?text=Hello%20Mahalaxmi%20Stones" target="_blank" class="flex items-center justify-center space-x-2 bg-goldAccent text-black font-semibold py-3 rounded-xl">
+                    <i class="fa-brands fa-whatsapp"></i><span>WhatsApp Us</span>
+                </a>
+                <a href="tel:9351708424" class="flex items-center justify-center space-x-2 border border-stoneBorder text-white font-semibold py-3 rounded-xl">
+                    <i class="fa-solid fa-phone"></i><span>Call 9351708424</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Dark Gradient Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920" alt="Luxurious natural stone architecture background" class="w-full h-full object-cover opacity-35 scale-105 animate-pulse duration-[10000ms]">
+            <div class="absolute inset-0 bg-gradient-to-b from-stoneDark/80 via-stoneDark/60 to-stoneDark"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-stoneCard/80 border border-stoneBorder mb-6 reveal">
+                <span class="w-2 h-2 rounded-full bg-goldAccent animate-ping"></span>
+                <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold">Belong to Rajasthan • Operating in Bethamcherla, Kurnool</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight max-w-5xl mx-auto leading-tight reveal">
+                Your Trusted Source for <span class="text-transparent bg-clip-text bg-gradient-to-r from-goldAccent via-yellow-200 to-goldLight">Premium Limestone & Stones</span>
+            </h1>
+            
+            <p class="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto font-light reveal">
+                Discover uncompromised durability and natural elegance with our exclusive Kadapa Black, Tandur Yellow & Blue, K.Grey (Ash Grey), and premium Cobble stones.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+                <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-goldAccent to-yellow-600 hover:from-yellow-500 hover:to-goldAccent text-black font-semibold rounded-xl shadow-xl hover:shadow-goldAccent/25 transition-all text-center">
+                    Explore Collection <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="https://wa.me/919351708424?text=Hi%20Mahalaxmi%20Stones,%20I%20would%20like%20a%20catalogue%20and%20pricing." target="_blank" class="w-full sm:w-auto px-8 py-4 bg-stoneCard hover:bg-stoneBorder border border-stoneBorder text-white font-semibold rounded-xl transition-all text-center flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i>
+                    <span>Quick WhatsApp Chat</span>
+                </a>
+            </div>
+
+            <!-- Quick Stats Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 border-t border-stoneBorder/60 reveal">
+                <div class="p-4 bg-stoneCard/40 backdrop-blur rounded-xl border border-stoneBorder/50">
+                    <div class="text-3xl font-serif font-bold text-goldAccent">100%</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400 mt-1">Natural Quarry Stone</div>
+                </div>
+                <div class="p-4 bg-stoneCard/40 backdrop-blur rounded-xl border border-stoneBorder/50">
+                    <div class="text-3xl font-serif font-bold text-goldAccent">Pan-India</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400 mt-1">Reliable Supply Chain</div>
+                </div>
+                <div class="p-4 bg-stoneCard/40 backdrop-blur rounded-xl border border-stoneBorder/50">
+                    <div class="text-3xl font-serif font-bold text-goldAccent">Top Grade</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400 mt-1">Kadapa & Limestone</div>
+                </div>
+                <div class="p-4 bg-stoneCard/40 backdrop-blur rounded-xl border border-stoneBorder/50">
+                    <div class="text-3xl font-serif font-bold text-goldAccent">24/7</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400 mt-1">Customer Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-stoneCard/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Image Grid -->
+                <div class="lg:col-span-6 relative reveal">
+                    <div class="relative rounded-2xl overflow-hidden border border-stoneBorder shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&q=80&w=800" alt="Stone mining and quarry work" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-2/3 hidden sm:block rounded-2xl overflow-hidden border-4 border-stoneDark shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=600" alt="Interior stone flooring" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="absolute top-6 left-6 bg-stoneDark/90 backdrop-blur-md px-6 py-4 rounded-xl border border-stoneBorder shadow-xl">
+                        <div class="text-goldAccent font-serif font-bold text-xl">Roots in Rajasthan</div>
+                        <div class="text-xs text-gray-400">Mastery in stone craft & heritage</div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:col-span-6 reveal">
+                    <div class="inline-flex items-center space-x-2 text-goldAccent text-sm font-semibold tracking-widest uppercase mb-3">
+                        <i class="fa-solid fa-gem text-xs"></i>
+                        <span>About Mahalaxmi Stones</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+                        Rooted in Rajasthan Heritage, Operating in Kurnool
+                    </h2>
+                    <p class="mt-6 text-gray-300 leading-relaxed font-light">
+                        At <strong class="text-white font-medium">Mahalaxmi Stone</strong>, we pride ourselves on being your premier, trusted source for authentic natural stones. Hailing from the rich mineral-bearing soils of Rajasthan and establishing robust operations in Bethamcherla, Kurnool (518599), we bridge traditional stone craftsmanship with modern architectural standards.
+                    </p>
+                    <p class="mt-4 text-gray-300 leading-relaxed font-light">
+                        Whether you are designing a luxury villa, commercial plaza, or rugged landscape paving, our peerless selection of Kadapa Black, Tandur stones, K.Grey, and custom cobbles deliver unmatched strength and timeless aesthetic appeal.
+                    </p>
+
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3 p-4 bg-stoneCard rounded-xl border border-stoneBorder">
+                            <div class="text-goldAccent text-xl mt-1"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                                <h4 class="font-semibold text-white">Unmatched Durability</h4>
+                                <p class="text-xs text-gray-400 mt-1">Resistant to weather, heavy traffic, and wear.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-4 bg-stoneCard rounded-xl border border-stoneBorder">
+                            <div class="text-goldAccent text-xl mt-1"><i class="fa-solid fa-handshake"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-white">Direct Quarry Pricing</h4>
+                                <p class="text-xs text-gray-400 mt-1">Best wholesale rates without middleman markups.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <a href="tel:9351708424" class="inline-flex items-center space-x-3 text-goldAccent hover:text-white font-semibold transition-colors">
+                            <span class="w-10 h-10 rounded-full bg-goldAccent/10 flex items-center justify-center border border-goldAccent/30">
+                                <i class="fa-solid fa-phone text-sm"></i>
+                            </span>
+                            <span>Direct Helpline: +91 9351708424</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Showcase Section -->
+    <section id="products" class="py-24 bg-stoneDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold">Exquisite Stone Inventory</span>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-serif font-bold text-white">Our Signature Stone Collection</h2>
+                <p class="mt-4 text-gray-400 font-light">Explore our premium selection of natural limestone, slate, and sandstones quarried to perfection.</p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Kadapa Black -->
+                <div class="bg-stoneCard rounded-2xl overflow-hidden border border-stoneBorder group hover:border-goldAccent/50 transition-all duration-500 shadow-xl reveal">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=700" alt="Kadapa Black Stone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stoneCard via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-stoneDark/80 backdrop-blur text-goldAccent text-xs font-semibold px-3 py-1 rounded-full border border-stoneBorder">Bestseller</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white group-hover:text-goldAccent transition-colors">Kadapa Black</h3>
+                        <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                            Renowned for its deep obsidian tone, exceptional strength, and smooth texture. Ideal for flooring, wall cladding, and countertops.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stoneBorder">
+                            <span class="text-xs text-goldAccent uppercase tracking-widest font-semibold">Limestone / Slate</span>
+                            <a href="https://wa.me/919351708424?text=Hello,%20I%20am%20interested%20in%20Kadapa%20Black%20stone%20pricing." target="_blank" class="inline-flex items-center space-x-2 bg-stoneDark hover:bg-goldAccent hover:text-black text-white px-4 py-2 rounded-xl text-sm font-medium border border-stoneBorder transition-all">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Premium Limestone -->
+                <div class="bg-stoneCard rounded-2xl overflow-hidden border border-stoneBorder group hover:border-goldAccent/50 transition-all duration-500 shadow-xl reveal">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=700" alt="Premium Limestone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stoneCard via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-stoneDark/80 backdrop-blur text-goldAccent text-xs font-semibold px-3 py-1 rounded-full border border-stoneBorder">High Grade</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white group-hover:text-goldAccent transition-colors">Premium Limestone</h3>
+                        <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                            Versatile and long-lasting natural stone with magnificent earthy tones. Perfect for both outdoor paving and grand interior living spaces.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stoneBorder">
+                            <span class="text-xs text-goldAccent uppercase tracking-widest font-semibold">Natural Stone</span>
+                            <a href="https://wa.me/919351708424?text=Hello,%20I%20am%20interested%20in%20Premium%20Limestone%20pricing." target="_blank" class="inline-flex items-center space-x-2 bg-stoneDark hover:bg-goldAccent hover:text-black text-white px-4 py-2 rounded-xl text-sm font-medium border border-stoneBorder transition-all">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tandur Yellow & Blue -->
+                <div class="bg-stoneCard rounded-2xl overflow-hidden border border-stoneBorder group hover:border-goldAccent/50 transition-all duration-500 shadow-xl reveal">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=700" alt="Tandur Yellow and Blue Stone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stoneCard via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-stoneDark/80 backdrop-blur text-goldAccent text-xs font-semibold px-3 py-1 rounded-full border border-stoneBorder">Popular Pick</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white group-hover:text-goldAccent transition-colors">Tandur Yellow & Blue</h3>
+                        <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                            Celebrated for exceptional weathering resistance and unique hue variations. Widely used for industrial flooring, parking lots, and pathways.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stoneBorder">
+                            <span class="text-xs text-goldAccent uppercase tracking-widest font-semibold">Limestone Series</span>
+                            <a href="https://wa.me/919351708424?text=Hello,%20I%20am%20interested%20in%20Tandur%20Yellow%20and%20Blue%20stones." target="_blank" class="inline-flex items-center space-x-2 bg-stoneDark hover:bg-goldAccent hover:text-black text-white px-4 py-2 rounded-xl text-sm font-medium border border-stoneBorder transition-all">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: K.Grey (Ash Grey) -->
+                <div class="bg-stoneCard rounded-2xl overflow-hidden border border-stoneBorder group hover:border-goldAccent/50 transition-all duration-500 shadow-xl reveal">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=700" alt="K.Grey Ash Grey Stone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stoneCard via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-stoneDark/80 backdrop-blur text-goldAccent text-xs font-semibold px-3 py-1 rounded-full border border-stoneBorder">Modern Look</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white group-hover:text-goldAccent transition-colors">K.Grey (Ash Grey)</h3>
+                        <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                            Sleek contemporary ash grey shade that brings understated sophistication to modern minimalist architecture and courtyard paving.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stoneBorder">
+                            <span class="text-xs text-goldAccent uppercase tracking-widest font-semibold">Grey Limestone</span>
+                            <a href="https://wa.me/919351708424?text=Hello,%20I%20am%20interested%20in%20K.Grey%20Ash%20Grey%20stone." target="_blank" class="inline-flex items-center space-x-2 bg-stoneDark hover:bg-goldAccent hover:text-black text-white px-4 py-2 rounded-xl text-sm font-medium border border-stoneBorder transition-all">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Cobbles Stone -->
+                <div class="bg-stoneCard rounded-2xl overflow-hidden border border-stoneBorder group hover:border-goldAccent/50 transition-all duration-500 shadow-xl reveal">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=700" alt="Cobbles Stone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stoneCard via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-stoneDark/80 backdrop-blur text-goldAccent text-xs font-semibold px-3 py-1 rounded-full border border-stoneBorder">Landscape</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white group-hover:text-goldAccent transition-colors">Cobbles Stone</h3>
+                        <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                            Sturdy, hand-dressed or machine-cut cobbles designed for magnificent driveways, garden pathways, and traditional rustic courtyards.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stoneBorder">
+                            <span class="text-xs text-goldAccent uppercase tracking-widest font-semibold">Paving Blocks</span>
+                            <a href="https://wa.me/919351708424?text=Hello,%20I%20am%20interested%20in%20Cobbles%20Stone%20pricing." target="_blank" class="inline-flex items-center space-x-2 bg-stoneDark hover:bg-goldAccent hover:text-black text-white px-4 py-2 rounded-xl text-sm font-medium border border-stoneBorder transition-all">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Natural Sandstone -->
+                <div class="bg-stoneCard rounded-2xl overflow-hidden border border-stoneBorder group hover:border-goldAccent/50 transition-all duration-500 shadow-xl reveal">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=700" alt="Natural Sandstone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stoneCard via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-stoneDark/80 backdrop-blur text-goldAccent text-xs font-semibold px-3 py-1 rounded-full border border-stoneBorder">Textured</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white group-hover:text-goldAccent transition-colors">Natural Sandstone</h3>
+                        <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                            Rich in texture with natural mineral grains. Excellent for exterior wall cladding, poolside decks, and statement landscape features.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stoneBorder">
+                            <span class="text-xs text-goldAccent uppercase tracking-widest font-semibold">Architectural Stone</span>
+                            <a href="https://wa.me/919351708424?text=Hello,%20I%20am%20interested%20in%20Natural%20Sandstone%20options." target="_blank" class="inline-flex items-center space-x-2 bg-stoneDark hover:bg-goldAccent hover:text-black text-white px-4 py-2 rounded-xl text-sm font-medium border border-stoneBorder transition-all">
+                                <i class="fa-brands fa-whatsapp text-green-400"></i>
+                                <span>Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-24 bg-stoneCard/30 relative border-t border-b border-stoneBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold">The Mahalaxmi Advantage</span>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-serif font-bold text-white">Why Architects & Builders Trust Us</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 bg-stoneCard rounded-2xl border border-stoneBorder relative group hover:border-goldAccent/40 transition-colors reveal">
+                    <div class="w-14 h-14 rounded-xl bg-goldAccent/10 border border-goldAccent/30 flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white">Quarry Direct Quality</h3>
+                    <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                        Hand-selected blocks from premier quarries in Rajasthan and Kurnool, ensuring flawless grade consistency and longevity.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 bg-stoneCard rounded-2xl border border-stoneBorder relative group hover:border-goldAccent/40 transition-colors reveal">
+                    <div class="w-14 h-14 rounded-xl bg-goldAccent/10 border border-goldAccent/30 flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white">Precision Calibration</h3>
+                    <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                        Advanced cutting and calibration equipment ensuring uniform thickness, clean edges, and effortless installation.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 bg-stoneCard rounded-2xl border border-stoneBorder relative group hover:border-goldAccent/40 transition-colors reveal">
+                    <div class="w-14 h-14 rounded-xl bg-goldAccent/10 border border-goldAccent/30 flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white">Safe & Timely Delivery</h3>
+                    <p class="mt-3 text-gray-400 text-sm leading-relaxed font-light">
+                        Robust transport logistics ensuring your stone order arrives safely and on schedule anywhere you require.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews / Testimonials Section -->
+    <section id="reviews" class="py-24 bg-stoneDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold">Client Testimonials</span>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-serif font-bold text-white">What Our Customers Say</h2>
+                <p class="mt-4 text-gray-400 font-light">Trusted by leading contractors, interior designers, and homeowners.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="p-8 bg-stoneCard rounded-2xl border border-stoneBorder relative flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex items-center space-x-1 text-goldAccent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic font-light leading-relaxed">
+                            "The Kadapa Black slabs from Mahalaxmi Stones are of exceptional quality. Deep uniform color and perfect calibration. Outstanding service!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-goldAccent/20 flex items-center justify-center font-bold text-goldAccent">
+                            RK
+                        </div>
+                        <div>
+                            <div class="text-white font-semibold text-sm">Ramesh K.</div>
+                            <div class="text-xs text-gray-400">Construction Contractor</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="p-8 bg-stoneCard rounded-2xl border border-stoneBorder relative flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex items-center space-x-1 text-goldAccent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic font-light leading-relaxed">
+                            "We ordered Tandur Yellow and K.Grey stones for our farmhouse project. The pricing was direct quarry wholesale and delivery was prompt."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-goldAccent/20 flex items-center justify-center font-bold text-goldAccent">
+                            AS
+                        </div>
+                        <div>
+                            <div class="text-white font-semibold text-sm">Anand Sharma</div>
+                            <div class="text-xs text-gray-400">Architect, Jaipur</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="p-8 bg-stoneCard rounded-2xl border border-stoneBorder relative flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex items-center space-x-1 text-goldAccent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic font-light leading-relaxed">
+                            "Authentic natural stones! Their cobbles gave our villa driveway an incredible royal heritage look. Highly recommended."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-goldAccent/20 flex items-center justify-center font-bold text-goldAccent">
+                            VN
+                        </div>
+                        <div>
+                            <div class="text-white font-semibold text-sm">Vikram Naidu</div>
+                            <div class="text-xs text-gray-400">Homeowner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-stoneCard/30 border-t border-stoneBorder relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold">Got Questions?</span>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-serif font-bold text-white">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <!-- FAQ Item 1 -->
+                <div class="bg-stoneCard rounded-xl border border-stoneBorder overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-serif font-semibold text-lg text-white flex justify-between items-center focus:outline-none">
+                        <span>Where is Mahalaxmi Stones located?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm font-light leading-relaxed">
+                        We belong to Rajasthan and operate actively from Bethamcherla, Kurnool (Pin: 518599), supplying top-tier stones across regions.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-stoneCard rounded-xl border border-stoneBorder overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-serif font-semibold text-lg text-white flex justify-between items-center focus:outline-none">
+                        <span>How can I place an order or get a quote?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm font-light leading-relaxed">
+                        You can instantly connect with us via our WhatsApp buttons or call us directly at 9351708424 for quick pricing and delivery estimates.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-stoneCard rounded-xl border border-stoneBorder overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-serif font-semibold text-lg text-white flex justify-between items-center focus:outline-none">
+                        <span>Do you supply Kadapa Black and Tandur stones in bulk?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm font-light leading-relaxed">
+                        Yes! We specialize in bulk wholesale supplies for contractors, builders, and large architectural projects with reliable transport logistics.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-stoneCard rounded-xl border border-stoneBorder overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-serif font-semibold text-lg text-white flex justify-between items-center focus:outline-none">
+                        <span>What types of natural stones do you offer?</span>
+                        <i class="fa-solid fa-chevron-down text-goldAccent transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm font-light leading-relaxed">
+                        Our core inventory includes Premium Limestone, Kadapa Black, Tandur Yellow & Blue, K.Grey (Ash Grey), Cobbles Stone, and Natural Sandstone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Contact Section -->
+    <section id="contact" class="py-24 bg-stoneDark relative border-t border-stoneBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold">Get In Touch</span>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-serif font-bold text-white">Visit Our Location & Connect</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-6 reveal">
+                    <div class="p-6 bg-stoneCard rounded-2xl border border-stoneBorder flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-goldAccent/10 text-goldAccent flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-lg">Location</h4>
+                            <p class="text-gray-400 text-sm mt-1 font-light">Bethamcherla, Kurnool - 518599 (Roots in Rajasthan)</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-stoneCard rounded-2xl border border-stoneBorder flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-goldAccent/10 text-goldAccent flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-lg">Phone Number</h4>
+                            <a href="tel:9351708424" class="text-goldAccent hover:underline text-sm mt-1 block font-medium">+91 9351708424</a>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-stoneCard rounded-2xl border border-stoneBorder flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-goldAccent/10 text-goldAccent flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-lg">Instagram</h4>
+                            <a href="https://www.instagram.com/mahalaxmi_stone_" target="_blank" class="text-goldAccent hover:underline text-sm mt-1 block font-medium">@mahalaxmi_stone_</a>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-stoneCard rounded-2xl border border-stoneBorder flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-goldAccent/10 text-goldAccent flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-lg">WhatsApp Chat</h4>
+                            <a href="https://wa.me/919351708424" target="_blank" class="text-goldAccent hover:underline text-sm mt-1 block font-medium">Chat instantly with us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Styled Map Embed -->
+                <div class="lg:col-span-7 h-[450px] rounded-2xl overflow-hidden border border-stoneBorder shadow-2xl relative reveal">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.5!2d78.14!3d15.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5a3c!2sBethamcherla%2C%20Andhra%20Pradesh%20518599!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: grayscale(90%) contrast(120%) invert(90%);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="absolute bottom-4 left-4 bg-stoneDark/90 backdrop-blur px-4 py-2 rounded-xl border border-stoneBorder text-xs text-goldAccent font-semibold shadow-lg">
+                        <i class="fa-solid fa-map-pin mr-1"></i> Bethamcherla, Kurnool 518599
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Magnetic Buttons (Call & WhatsApp) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
+        <!-- WhatsApp Floating Button with Magnetic effect -->
+        <a href="https://wa.me/919351708424?text=Hello%20Mahalaxmi%20Stones" target="_blank" id="magnetic-whatsapp" class="magnetic-btn w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 relative group">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+            <span class="absolute right-16 bg-stoneDark border border-stoneBorder text-white text-xs px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Chat on WhatsApp
+            </span>
+        </a>
+
+        <!-- Call Floating Button with Magnetic effect -->
+        <a href="tel:9351708424" id="magnetic-call" class="magnetic-btn w-14 h-14 rounded-full bg-goldAccent hover:bg-yellow-500 text-black flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 relative group">
+            <i class="fa-solid fa-phone text-xl"></i>
+            <span class="absolute right-16 bg-stoneDark border border-stoneBorder text-white text-xs px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Call: 9351708424
+            </span>
+        </a>
     </div>
-    <div class="hero-meta">
-      <div><b>Premium</b>Furniture selection</div>
-      <div><b>Custom</b>Interior solutions</div>
-      <div><b>Direct</b>Design consultation</div>
-    </div>
-  </div>
-  <div class="scroll-cue">Scroll to explore</div>
-</section>
 
-<section class="section cream" id="services">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">What we offer</div>
-      <h2>Designed for <span class="gold">beautiful living.</span></h2>
-      <p>Furniture and interiors brought together with a premium, cohesive design language — inspired by the visual direction of leading furniture and interior studios. citeturn0search1turn0search4</p>
-    </div>
-    <div class="services">
-      <article class="card reveal"><div class="card-icon">◈</div><h3>Luxury Sofas</h3><p>Statement seating, refined silhouettes and comfortable forms for contemporary living spaces.</p></article>
-      <article class="card reveal d1"><div class="card-icon">⌂</div><h3>Bedroom Furniture</h3><p>Beds, bedside units, wardrobes and coordinated bedroom pieces designed as one composition.</p></article>
-      <article class="card reveal d2"><div class="card-icon">◇</div><h3>Dining Collection</h3><p>Dining tables, chairs and storage pieces that bring warmth and character to the dining space.</p></article>
-      <article class="card reveal"><div class="card-icon">▱</div><h3>Living Interiors</h3><p>TV units, coffee tables, consoles, wall details and complete living-room styling.</p></article>
-      <article class="card reveal d1"><div class="card-icon">◎</div><h3>Office Furniture</h3><p>Desks, seating, storage and executive furniture for polished professional environments.</p></article>
-      <article class="card reveal d2"><div class="card-icon">✦</div><h3>Custom Interiors</h3><p>Tailored furniture and interior concepts built around your space, taste and functional needs.</p></article>
-    </div>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer class="bg-stoneDark border-t border-stoneBorder py-16 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-stoneBorder">
+                <!-- Col 1 -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-goldAccent to-goldLight flex items-center justify-center text-black font-bold font-serif">
+                            M
+                        </div>
+                        <span class="text-lg font-serif font-bold text-white">MAHALAXMI</span>
+                    </div>
+                    <p class="text-xs font-light text-gray-400 leading-relaxed">
+                        Your trusted source for premium limestone, Kadapa Black, Tandur stones, and natural stone solutions. Belonging to Rajasthan, operating in Kurnool.
+                    </p>
+                </div>
 
-<section class="section dark" id="about">
-  <div class="container split">
-    <div class="media reveal"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=88" alt="Elegant premium interior"></div>
-    <div class="copy reveal d1">
-      <div class="eyebrow">The S K approach</div>
-      <h2>Luxury is in the <span class="gold">details.</span></h2>
-      <p>S K Furniture is presented as a premium furniture and interiors brand focused on proportion, comfort, materials and the way every piece works together inside a space.</p>
-      <div class="points">
-        <div class="point"><b>Curated design</b><span>Furniture with a cohesive visual language.</span></div>
-        <div class="point"><b>Custom solutions</b><span>Adapt designs to your space and needs.</span></div>
-        <div class="point"><b>Interior harmony</b><span>Coordinate furniture with the room.</span></div>
-        <div class="point"><b>Personal guidance</b><span>Discuss your project directly on WhatsApp.</span></div>
-      </div>
-      <a class="btn primary magnetic" href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20a%20custom%20furniture%20or%20interior%20consultation." target="_blank">Discuss Your Space ↗</a>
-    </div>
-  </div>
-</section>
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4 uppercase text-xs tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-goldAccent transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-goldAccent transition-colors">About Us</a></li>
+                        <li><a href="#products" class="hover:text-goldAccent transition-colors">Collection</a></li>
+                        <li><a href="#why-us" class="hover:text-goldAccent transition-colors">Why Choose Us</a></li>
+                        <li><a href="#reviews" class="hover:text-goldAccent transition-colors">Reviews</a></li>
+                    </ul>
+                </div>
 
-<section class="section cream" id="collection">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Furniture & interiors</div>
-      <h2>A collection for <span class="gold">every room.</span></h2>
-      <p>High-end visual references are used here from Unsplash's furniture and interior photography collections. citeturn0search0turn0search5</p>
-    </div>
-    <div class="collection">
-      <div class="item reveal"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=88" alt="Luxury living room furniture"><span class="item-label">Living Room</span></div>
-      <div class="item reveal d1"><img src="https://images.unsplash.com/photo-1615874694520-474822d0d3f5?auto=format&fit=crop&w=1400&q=88" alt="Modern bedroom furniture"><span class="item-label">Bedroom</span></div>
-      <div class="item reveal d2"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=88" alt="Premium dining interior"><span class="item-label">Dining</span></div>
-      <div class="item reveal"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=88" alt="Contemporary interior furniture"><span class="item-label">Interiors</span></div>
-      <div class="item reveal d1"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=88" alt="Designer furniture detail"><span class="item-label">Details</span></div>
-      <div class="item reveal d2"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=88" alt="Elegant furniture composition"><span class="item-label">Custom</span></div>
-    </div>
-  </div>
-</section>
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4 uppercase text-xs tracking-wider">Our Products</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#products" class="hover:text-goldAccent transition-colors">Kadapa Black</a></li>
+                        <li><a href="#products" class="hover:text-goldAccent transition-colors">Premium Limestone</a></li>
+                        <li><a href="#products" class="hover:text-goldAccent transition-colors">Tandur Yellow & Blue</a></li>
+                        <li><a href="#products" class="hover:text-goldAccent transition-colors">K.Grey (Ash Grey)</a></li>
+                        <li><a href="#products" class="hover:text-goldAccent transition-colors">Cobbles & Sandstone</a></li>
+                    </ul>
+                </div>
 
-<section class="section dark2" id="process">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Our process</div>
-      <h2>From inspiration to <span class="gold">your space.</span></h2>
-      <p>A simple project journey designed to keep the conversation clear from the first reference to the finished interior.</p>
-    </div>
-    <div class="process">
-      <div class="step reveal"><span class="step-no">01 / DISCOVER</span><h3>Share your vision</h3><p>Send room photos, measurements, references or simply tell us what you want.</p></div>
-      <div class="step reveal d1"><span class="step-no">02 / PLAN</span><h3>Build the direction</h3><p>Discuss furniture, finishes, layout and the overall look you want.</p></div>
-      <div class="step reveal d2"><span class="step-no">03 / CREATE</span><h3>Craft the pieces</h3><p>Your selected or custom furniture moves into production and preparation.</p></div>
-      <div class="step reveal d3"><span class="step-no">04 / COMPLETE</span><h3>Finish the space</h3><p>Furniture and interior details come together as one finished environment.</p></div>
-    </div>
-  </div>
-</section>
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4 uppercase text-xs tracking-wider">Connect With Us</h4>
+                    <p class="text-xs font-light mb-3">Phone: <a href="tel:9351708424" class="text-goldAccent font-medium">+91 9351708424</a></p>
+                    <p class="text-xs font-light mb-4">Location: Bethamcherla, Kurnool 518599</p>
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.instagram.com/mahalaxmi_stone_" target="_blank" class="w-10 h-10 rounded-xl bg-stoneCard hover:bg-goldAccent hover:text-black border border-stoneBorder flex items-center justify-center text-white transition-colors" title="Instagram: @mahalaxmi_stone_">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://wa.me/919351708424" target="_blank" class="w-10 h-10 rounded-xl bg-stoneCard hover:bg-goldAccent hover:text-black border border-stoneBorder flex items-center justify-center text-white transition-colors" title="WhatsApp Chat">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="tel:9351708424" class="w-10 h-10 rounded-xl bg-stoneCard hover:bg-goldAccent hover:text-black border border-stoneBorder flex items-center justify-center text-white transition-colors" title="Call Us">
+                            <i class="fa-solid fa-phone text-sm"></i>
+                        </a>
+                    </div>
+                    <div class="mt-3 text-xs text-goldAccent font-medium">
+                        Instagram ID: mahalaxmi_stone_
+                    </div>
+                </div>
+            </div>
 
-<section class="section dark2">
-  <div class="container">
-    <div class="stats reveal">
-      <div class="stat"><strong>01</strong><span>Premium design focus</span></div>
-      <div class="stat"><strong>02</strong><span>Custom furniture options</span></div>
-      <div class="stat"><strong>03</strong><span>Home & commercial interiors</span></div>
-      <div class="stat"><strong>04</strong><span>Direct WhatsApp enquiry</span></div>
-    </div>
-  </div>
-</section>
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 Mahalaxmi Stones. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">Crafted with precision for architectural excellence.</p>
+            </div>
+        </div>
+    </footer>
 
-<section class="section dark" id="reviews">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Customer experience</div>
-      <h2>Spaces made to <span class="gold">feel right.</span></h2>
-      <p>These are sample review cards for the design preview. Replace them with verified customer reviews before publishing.</p>
-    </div>
-    <div class="reviews">
-      <article class="review reveal"><div class="stars">★★★★★</div><p>“The furniture changed the entire character of the room. The final look feels elegant, comfortable and well coordinated.”</p><div class="reviewer"><div class="avatar">R</div><div><b>Residential Client</b><span>Furniture Project</span></div></div></article>
-      <article class="review reveal d1"><div class="stars">★★★★★</div><p>“We wanted a premium interior without making the space feel crowded. The furniture and styling came together beautifully.”</p><div class="reviewer"><div class="avatar">A</div><div><b>Homeowner</b><span>Interior Project</span></div></div></article>
-      <article class="review reveal d2"><div class="stars">★★★★★</div><p>“A clean, modern furniture direction with attention to the small details that make a room feel finished.”</p><div class="reviewer"><div class="avatar">S</div><div><b>Commercial Client</b><span>Office Project</span></div></div></article>
-    </div>
-  </div>
-</section>
+    <!-- JavaScript for Mobile Menu, Scroll Reveal, FAQs, and Magnetic Hover Effect -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-<section class="section dark2" id="faq">
-  <div class="container">
-    <div class="section-head reveal"><div class="eyebrow">FAQ</div><h2>Everything you <span class="gold">need to know.</span></h2></div>
-    <div class="faq">
-      <div class="faq-item reveal"><button class="faq-q"><span>Do you provide custom furniture?</span><i>+</i></button><div class="faq-a">Yes. Custom requirements can be discussed based on your room dimensions, preferred design, materials, finish and intended use.</div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span>Can I share a reference image?</span><i>+</i></button><div class="faq-a">Absolutely. WhatsApp your inspiration image along with approximate dimensions and we can discuss the requirement.</div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span>Do you work on complete interiors?</span><i>+</i></button><div class="faq-a">The website is structured to present both furniture and interior solutions. The exact scope can be discussed directly for your project.</div></div>
-      <div class="faq-item reveal"><button class="faq-q"><span>How can I request a quotation?</span><i>+</i></button><div class="faq-a">Call or WhatsApp +91 72318 33597 with your requirement, location, approximate size and reference images.</div></div>
-    </div>
-  </div>
-</section>
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-<section class="section dark" id="contact">
-  <div class="container contact">
-    <div class="contact-card reveal">
-      <div class="eyebrow">Start your project</div>
-      <h3>Let's design your space.</h3>
-      <p>Share your furniture requirement, room photo or interior reference and start a direct conversation.</p>
-      <div class="contact-links">
-        <a href="tel:+917231833597">☎ &nbsp; +91 72318 33597</a>
-        <a href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20to%20discuss%20a%20project." target="_blank">◉ &nbsp; WhatsApp Enquiry</a>
-        <a href="https://www.instagram.com/" target="_blank">◎ &nbsp; Instagram Profile</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=S%20K%20Furniture%20India" target="_blank">⌖ &nbsp; Open showroom location</a>
-      </div>
-    </div>
-    <div class="map reveal d1">
-      <iframe loading="lazy" src="https://www.google.com/maps?q=S%20K%20Furniture%20India&output=embed" title="S K Furniture map"></iframe>
-    </div>
-  </div>
-</section>
-</main>
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <div><b>S K Furniture</b><small>Premium Furniture • Interiors • Custom Design</small></div>
-    <div><a href="https://wa.me/917231833597" target="_blank">WhatsApp</a> &nbsp; • &nbsp; <a href="https://www.instagram.com/" target="_blank">Instagram</a><small>Designed for refined spaces.</small></div>
-  </div>
-</footer>
+        // Scroll Reveal Animation with Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
 
-<div class="floaters">
-  <a class="fab call magnetic" href="tel:+917231833597" aria-label="Call S K Furniture">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.6a2 2 0 0 1-.5 2.1L9 10.7a16 16 0 0 0 4.3 4.3l1.3-1.3a2 2 0 0 1 2.1-.5c.8.4 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg>
-  </a>
-  <a class="fab wa magnetic" href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20to%20discuss%20furniture%20or%20interior%20work." target="_blank" aria-label="WhatsApp S K Furniture">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.3L3 20l1.2-4.9A8.4 8.4 0 1 1 20.5 11.6Z"/><path d="M8.2 8.1c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c.7 1.3 1.8 2.3 3.2 2.9l.6-.7c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.3.6-.2.9-.9 1.4-1.8 1.5-3.7.1-7.9-4-8-7.5-.1-.9.5-1.7 1.8-2.3Z"/></svg>
-  </a>
-</div>
+        revealElements.forEach(el => revealObserver.observe(el));
 
-<script>
-const slides=[...document.querySelectorAll(".hero-bg img")];
-let current=0;
-setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active")},5200);
+        // FAQ Accordion Functionality
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('fa-chevron-down') || toggle.querySelector('i');
+                
+                // Toggle current item
+                const isOpen = !content.classList.contains('hidden');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = 'rotate(0deg)');
 
-const observer=new IntersectionObserver(entries=>{
- entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")})
-},{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+                if (!isOpen) {
+                    content.classList.remove('hidden');
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
 
-document.querySelectorAll(".faq-q").forEach(btn=>{
- btn.addEventListener("click",()=>btn.parentElement.classList.toggle("open"));
-});
+        // Magnetic Effect on Floating Buttons
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.1)';`;
+            });
 
-const cursor=document.querySelector(".cursor");
-window.addEventListener("mousemove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px"});
-document.querySelectorAll(".magnetic").forEach(el=>{
- el.addEventListener("mousemove",e=>{
-   const r=el.getBoundingClientRect();
-   const x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);
-   el.style.transform=`translate(${x*.12}px,${y*.12}px)`;
- });
- el.addEventListener("mouseleave",()=>el.style.transform="");
-});
-document.querySelector(".menu").addEventListener("click",()=>document.querySelector(".navlinks").classList.toggle("show"));
-document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>document.querySelector(".navlinks").classList.remove("show")));
-</script>
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
