@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171512">
+<meta name="description" content="S K Furniture — premium furniture and interior solutions.">
+<title>S K Furniture | Premium Furniture & Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#171512;--ink2:#211e19;--cream:#f5f0e8;--cream2:#e9dfd0;
+  --gold:#b58a4a;--gold2:#d8bb86;--muted:#aaa29a;--line:rgba(255,255,255,.12);
+  --shadow:0 28px 80px rgba(0,0,0,.30)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--ink);color:#fff;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
+button{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.section{padding:105px 0}
+.dark{background:var(--ink)}
+.dark2{background:var(--ink2)}
+.cream{background:var(--cream);color:var(--ink)}
+.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);font-weight:800;margin-bottom:15px}
+h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.04}
+h1{font-size:clamp(3.4rem,8vw,7.4rem);letter-spacing:-.055em}
+h2{font-size:clamp(2.3rem,5vw,4.6rem);letter-spacing:-.04em}
+h3{font-size:1.55rem}
+.gold{color:var(--gold2)}
+.section-head{max-width:780px;margin-bottom:52px}
+.section-head p{color:var(--muted);max-width:650px;margin-top:18px}
+.cream .section-head p{color:#716a61}
+
+.topbar{position:absolute;z-index:20;top:0;left:0;width:100%;border-bottom:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(0,0,0,.5),transparent);backdrop-filter:blur(6px)}
+.nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:48px;height:48px;border:1px solid rgba(216,187,134,.65);border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display";font-size:1.1rem;color:var(--gold2);background:rgba(0,0,0,.28)}
+.logo strong{font-family:"Playfair Display";font-size:1.12rem}
+.logo small{display:block;color:#aaa;font:500 .58rem "DM Sans";letter-spacing:.16em;text-transform:uppercase}
+.navlinks{display:flex;gap:26px;color:#ddd;font-size:.88rem}
+.navlinks a{transition:.25s}.navlinks a:hover{color:var(--gold2)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:1.55rem;cursor:pointer}
+
+.hero{min-height:100svh;position:relative;display:flex;align-items:end;overflow:hidden;background:#111}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s,transform 7s}
+.hero-bg img.active{opacity:1;transform:scale(1)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,7,.88),rgba(10,9,7,.40) 58%,rgba(10,9,7,.30)),linear-gradient(0deg,rgba(8,7,5,.9),transparent 48%)}
+.hero-content{position:relative;z-index:2;padding:160px 0 72px;max-width:880px}
+.hero h1 span{color:var(--gold2)}
+.hero-copy{max-width:690px;color:#ddd;font-size:1.08rem;margin:25px 0 32px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 21px;border-radius:999px;border:1px solid rgba(216,187,134,.55);font-weight:700;font-size:.88rem;transition:.3s;cursor:pointer}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:#18130c}
+.btn.ghost{background:rgba(255,255,255,.04)}
+.btn:hover{box-shadow:0 18px 38px rgba(0,0,0,.28)}
+.hero-meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:38px;color:#bbb;font-size:.78rem}
+.hero-meta b{display:block;color:var(--gold2);font:600 1.1rem "Playfair Display"}
+.scroll-cue{position:absolute;right:4%;bottom:35px;z-index:3;writing-mode:vertical-rl;font-size:.65rem;letter-spacing:.25em;color:#c9c2b8;text-transform:uppercase}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid rgba(30,25,20,.13);border-radius:22px;padding:29px;background:rgba(255,255,255,.36);min-height:245px;transition:.4s}
+.card:hover{transform:translateY(-8px);background:#fff;box-shadow:0 25px 55px rgba(50,35,15,.10)}
+.card-icon{width:50px;height:50px;border-radius:15px;background:#17130e;color:var(--gold2);display:grid;place-items:center;font-size:1.35rem;margin-bottom:24px}
+.card h3{margin-bottom:10px}.card p{font-size:.9rem;color:#756d63}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.media{border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.media img{height:620px;object-fit:cover}
+.copy p{color:var(--muted);margin:18px 0}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:28px 0}
+.point{border:1px solid var(--line);border-radius:16px;padding:17px;background:rgba(255,255,255,.025)}
+.point b{display:block;margin-bottom:4px}.point span{font-size:.78rem;color:#8f8981}
+
+.collection{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.item{position:relative;overflow:hidden;border-radius:21px;min-height:300px}
+.item img{height:100%;object-fit:cover;transition:.7s}
+.item:hover img{transform:scale(1.07)}
+.item:nth-child(1){grid-column:span 7;grid-row:span 2}
+.item:nth-child(2),.item:nth-child(3){grid-column:span 5}
+.item:nth-child(4),.item:nth-child(5),.item:nth-child(6){grid-column:span 4}
+.item-label{position:absolute;left:15px;bottom:15px;padding:8px 12px;border-radius:99px;background:rgba(0,0,0,.62);backdrop-filter:blur(9px);border:1px solid rgba(255,255,255,.16);font-size:.72rem}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{border-top:1px solid var(--line);padding-top:17px}
+.step-no{color:var(--gold2);font-size:.72rem;font-weight:800;letter-spacing:.18em}
+.step h3{margin:17px 0 8px}.step p{color:var(--muted);font-size:.86rem}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:30px;border-right:1px solid var(--line)}.stat:last-child{border-right:0}
+.stat strong{font:600 2.8rem "Playfair Display";color:var(--gold2)}.stat span{display:block;color:#999;font-size:.78rem;margin-top:5px}
+
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{padding:29px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
+.stars{color:var(--gold2);letter-spacing:3px;margin-bottom:18px}
+.review p{color:#d0cbc3;font-size:.91rem}.reviewer{display:flex;align-items:center;gap:12px;margin-top:24px}
+.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#8e6730,#ead09b);display:grid;place-items:center;color:#241a0e;font-weight:800}
+.reviewer span{display:block;color:#888;font-size:.73rem}
+
+.faq{max-width:900px}.faq-item{border-bottom:1px solid rgba(255,255,255,.13)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;border:0;background:none;color:#fff;text-align:left;font-weight:700;cursor:pointer}
+.faq-q i{font-style:normal;color:var(--gold2);font-size:1.45rem;transition:.3s}
+.faq-a{max-height:0;overflow:hidden;color:#9d988f;transition:max-height .45s,padding .45s}
+.faq-item.open .faq-a{max-height:180px;padding-bottom:22px}.faq-item.open .faq-q i{transform:rotate(45deg)}
+
+.contact{display:grid;grid-template-columns:.78fr 1.22fr;gap:20px}
+.contact-card{padding:32px;border-radius:25px;background:#15130f;border:1px solid var(--line)}
+.contact-card h3{font-size:2.1rem}.contact-card>p{color:#999;margin:12px 0 25px}
+.contact-links{display:grid;gap:12px}.contact-links a{padding:14px;border:1px solid var(--line);border-radius:15px;color:#ddd;transition:.25s}.contact-links a:hover{color:var(--gold2);border-color:rgba(216,187,134,.5)}
+.map{min-height:450px;border-radius:25px;overflow:hidden;border:1px solid var(--line)}.map iframe{width:100%;height:100%;border:0;filter:grayscale(.25) contrast(1.05)}
+
+.footer{padding:36px 0;border-top:1px solid var(--line);color:#888}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer b{color:#ddd}.footer small{display:block;margin-top:5px}.footer a{color:#ddd}
+.floaters{position:fixed;right:22px;bottom:22px;z-index:50;display:grid;gap:10px}.fab{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 15px 35px rgba(0,0,0,.4);transition:.25s;border:1px solid rgba(255,255,255,.16)}.fab:hover{transform:translateY(-4px) scale(1.04)}.fab svg{width:25px;height:25px}.fab.call{background:#f5f0e8;color:#16130f}.fab.wa{background:#20bd67;color:#fff}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.cursor{position:fixed;width:17px;height:17px;border:1px solid var(--gold2);border-radius:50%;z-index:100;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference;display:none}
+@media(min-width:1000px){.cursor{display:block}}
+@media(max-width:900px){
+ .navlinks{display:none}.menu{display:block}.navlinks.show{display:flex;position:absolute;top:72px;left:4%;right:4%;flex-direction:column;padding:18px;background:rgba(18,16,13,.98);border:1px solid var(--line);border-radius:18px}
+ .services,.reviews{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.media img{height:500px}.process{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.contact{grid-template-columns:1fr}.map{min-height:360px}
+}
+@media(max-width:620px){
+ .section{padding:75px 0}.logo strong{font-size:.95rem}.hero-content{padding:140px 0 55px}.hero-meta{gap:17px}.services,.reviews,.process{grid-template-columns:1fr}.points{grid-template-columns:1fr}.collection{grid-template-columns:1fr 1fr}.item,.item:nth-child(n){grid-column:span 1;grid-row:span 1;min-height:190px}.item:nth-child(1){grid-column:span 2}.stats{grid-template-columns:1fr 1fr}.stat{padding:22px 15px}.stat strong{font-size:2rem}.footer-inner{flex-direction:column}.scroll-cue{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="logo" href="#home">
+      <div class="logo-mark">SK</div>
+      <div><strong>S K Furniture</strong><small>Furniture • Interiors</small></div>
+    </a>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#collection">Collection</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu" aria-label="Open navigation">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img class="active" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=88" alt="Premium living room furniture">
+    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=88" alt="Luxury furniture interior">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=88" alt="Modern designer furniture">
+    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=88" alt="Premium bedroom interior">
+  </div>
+  <div class="container hero-content reveal">
+    <div class="eyebrow">Premium Furniture • Interiors • Custom Design</div>
+    <h1>Furniture that <span>defines</span> the room.</h1>
+    <p class="hero-copy">Elegant furniture and thoughtfully designed interiors for homes, offices and spaces that deserve a refined finish — from statement pieces to complete room solutions.</p>
+    <div class="actions">
+      <a class="btn primary magnetic" href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20to%20discuss%20furniture%20or%20interior%20work." target="_blank">WhatsApp Us ↗</a>
+      <a class="btn ghost magnetic" href="#collection">Explore Collection ↓</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>Premium</b>Furniture selection</div>
+      <div><b>Custom</b>Interior solutions</div>
+      <div><b>Direct</b>Design consultation</div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll to explore</div>
+</section>
+
+<section class="section cream" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">What we offer</div>
+      <h2>Designed for <span class="gold">beautiful living.</span></h2>
+      <p>Furniture and interiors brought together with a premium, cohesive design language — inspired by the visual direction of leading furniture and interior studios. citeturn0search1turn0search4</p>
+    </div>
+    <div class="services">
+      <article class="card reveal"><div class="card-icon">◈</div><h3>Luxury Sofas</h3><p>Statement seating, refined silhouettes and comfortable forms for contemporary living spaces.</p></article>
+      <article class="card reveal d1"><div class="card-icon">⌂</div><h3>Bedroom Furniture</h3><p>Beds, bedside units, wardrobes and coordinated bedroom pieces designed as one composition.</p></article>
+      <article class="card reveal d2"><div class="card-icon">◇</div><h3>Dining Collection</h3><p>Dining tables, chairs and storage pieces that bring warmth and character to the dining space.</p></article>
+      <article class="card reveal"><div class="card-icon">▱</div><h3>Living Interiors</h3><p>TV units, coffee tables, consoles, wall details and complete living-room styling.</p></article>
+      <article class="card reveal d1"><div class="card-icon">◎</div><h3>Office Furniture</h3><p>Desks, seating, storage and executive furniture for polished professional environments.</p></article>
+      <article class="card reveal d2"><div class="card-icon">✦</div><h3>Custom Interiors</h3><p>Tailored furniture and interior concepts built around your space, taste and functional needs.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="about">
+  <div class="container split">
+    <div class="media reveal"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=88" alt="Elegant premium interior"></div>
+    <div class="copy reveal d1">
+      <div class="eyebrow">The S K approach</div>
+      <h2>Luxury is in the <span class="gold">details.</span></h2>
+      <p>S K Furniture is presented as a premium furniture and interiors brand focused on proportion, comfort, materials and the way every piece works together inside a space.</p>
+      <div class="points">
+        <div class="point"><b>Curated design</b><span>Furniture with a cohesive visual language.</span></div>
+        <div class="point"><b>Custom solutions</b><span>Adapt designs to your space and needs.</span></div>
+        <div class="point"><b>Interior harmony</b><span>Coordinate furniture with the room.</span></div>
+        <div class="point"><b>Personal guidance</b><span>Discuss your project directly on WhatsApp.</span></div>
+      </div>
+      <a class="btn primary magnetic" href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20a%20custom%20furniture%20or%20interior%20consultation." target="_blank">Discuss Your Space ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section cream" id="collection">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Furniture & interiors</div>
+      <h2>A collection for <span class="gold">every room.</span></h2>
+      <p>High-end visual references are used here from Unsplash's furniture and interior photography collections. citeturn0search0turn0search5</p>
+    </div>
+    <div class="collection">
+      <div class="item reveal"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=88" alt="Luxury living room furniture"><span class="item-label">Living Room</span></div>
+      <div class="item reveal d1"><img src="https://images.unsplash.com/photo-1615874694520-474822d0d3f5?auto=format&fit=crop&w=1400&q=88" alt="Modern bedroom furniture"><span class="item-label">Bedroom</span></div>
+      <div class="item reveal d2"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=88" alt="Premium dining interior"><span class="item-label">Dining</span></div>
+      <div class="item reveal"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=88" alt="Contemporary interior furniture"><span class="item-label">Interiors</span></div>
+      <div class="item reveal d1"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=88" alt="Designer furniture detail"><span class="item-label">Details</span></div>
+      <div class="item reveal d2"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=88" alt="Elegant furniture composition"><span class="item-label">Custom</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark2" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our process</div>
+      <h2>From inspiration to <span class="gold">your space.</span></h2>
+      <p>A simple project journey designed to keep the conversation clear from the first reference to the finished interior.</p>
+    </div>
+    <div class="process">
+      <div class="step reveal"><span class="step-no">01 / DISCOVER</span><h3>Share your vision</h3><p>Send room photos, measurements, references or simply tell us what you want.</p></div>
+      <div class="step reveal d1"><span class="step-no">02 / PLAN</span><h3>Build the direction</h3><p>Discuss furniture, finishes, layout and the overall look you want.</p></div>
+      <div class="step reveal d2"><span class="step-no">03 / CREATE</span><h3>Craft the pieces</h3><p>Your selected or custom furniture moves into production and preparation.</p></div>
+      <div class="step reveal d3"><span class="step-no">04 / COMPLETE</span><h3>Finish the space</h3><p>Furniture and interior details come together as one finished environment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark2">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><strong>01</strong><span>Premium design focus</span></div>
+      <div class="stat"><strong>02</strong><span>Custom furniture options</span></div>
+      <div class="stat"><strong>03</strong><span>Home & commercial interiors</span></div>
+      <div class="stat"><strong>04</strong><span>Direct WhatsApp enquiry</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Customer experience</div>
+      <h2>Spaces made to <span class="gold">feel right.</span></h2>
+      <p>These are sample review cards for the design preview. Replace them with verified customer reviews before publishing.</p>
+    </div>
+    <div class="reviews">
+      <article class="review reveal"><div class="stars">★★★★★</div><p>“The furniture changed the entire character of the room. The final look feels elegant, comfortable and well coordinated.”</p><div class="reviewer"><div class="avatar">R</div><div><b>Residential Client</b><span>Furniture Project</span></div></div></article>
+      <article class="review reveal d1"><div class="stars">★★★★★</div><p>“We wanted a premium interior without making the space feel crowded. The furniture and styling came together beautifully.”</p><div class="reviewer"><div class="avatar">A</div><div><b>Homeowner</b><span>Interior Project</span></div></div></article>
+      <article class="review reveal d2"><div class="stars">★★★★★</div><p>“A clean, modern furniture direction with attention to the small details that make a room feel finished.”</p><div class="reviewer"><div class="avatar">S</div><div><b>Commercial Client</b><span>Office Project</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section dark2" id="faq">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">FAQ</div><h2>Everything you <span class="gold">need to know.</span></h2></div>
+    <div class="faq">
+      <div class="faq-item reveal"><button class="faq-q"><span>Do you provide custom furniture?</span><i>+</i></button><div class="faq-a">Yes. Custom requirements can be discussed based on your room dimensions, preferred design, materials, finish and intended use.</div></div>
+      <div class="faq-item reveal"><button class="faq-q"><span>Can I share a reference image?</span><i>+</i></button><div class="faq-a">Absolutely. WhatsApp your inspiration image along with approximate dimensions and we can discuss the requirement.</div></div>
+      <div class="faq-item reveal"><button class="faq-q"><span>Do you work on complete interiors?</span><i>+</i></button><div class="faq-a">The website is structured to present both furniture and interior solutions. The exact scope can be discussed directly for your project.</div></div>
+      <div class="faq-item reveal"><button class="faq-q"><span>How can I request a quotation?</span><i>+</i></button><div class="faq-a">Call or WhatsApp +91 72318 33597 with your requirement, location, approximate size and reference images.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="contact">
+  <div class="container contact">
+    <div class="contact-card reveal">
+      <div class="eyebrow">Start your project</div>
+      <h3>Let's design your space.</h3>
+      <p>Share your furniture requirement, room photo or interior reference and start a direct conversation.</p>
+      <div class="contact-links">
+        <a href="tel:+917231833597">☎ &nbsp; +91 72318 33597</a>
+        <a href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20to%20discuss%20a%20project." target="_blank">◉ &nbsp; WhatsApp Enquiry</a>
+        <a href="https://www.instagram.com/" target="_blank">◎ &nbsp; Instagram Profile</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=S%20K%20Furniture%20India" target="_blank">⌖ &nbsp; Open showroom location</a>
+      </div>
+    </div>
+    <div class="map reveal d1">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=S%20K%20Furniture%20India&output=embed" title="S K Furniture map"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><b>S K Furniture</b><small>Premium Furniture • Interiors • Custom Design</small></div>
+    <div><a href="https://wa.me/917231833597" target="_blank">WhatsApp</a> &nbsp; • &nbsp; <a href="https://www.instagram.com/" target="_blank">Instagram</a><small>Designed for refined spaces.</small></div>
+  </div>
+</footer>
+
+<div class="floaters">
+  <a class="fab call magnetic" href="tel:+917231833597" aria-label="Call S K Furniture">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.6a2 2 0 0 1-.5 2.1L9 10.7a16 16 0 0 0 4.3 4.3l1.3-1.3a2 2 0 0 1 2.1-.5c.8.4 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg>
+  </a>
+  <a class="fab wa magnetic" href="https://wa.me/917231833597?text=Hello%20S%20K%20Furniture%2C%20I%20want%20to%20discuss%20furniture%20or%20interior%20work." target="_blank" aria-label="WhatsApp S K Furniture">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.3L3 20l1.2-4.9A8.4 8.4 0 1 1 20.5 11.6Z"/><path d="M8.2 8.1c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c.7 1.3 1.8 2.3 3.2 2.9l.6-.7c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.3.6-.2.9-.9 1.4-1.8 1.5-3.7.1-7.9-4-8-7.5-.1-.9.5-1.7 1.8-2.3Z"/></svg>
+  </a>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll(".hero-bg img")];
+let current=0;
+setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active")},5200);
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")})
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+document.querySelectorAll(".faq-q").forEach(btn=>{
+ btn.addEventListener("click",()=>btn.parentElement.classList.toggle("open"));
+});
+
+const cursor=document.querySelector(".cursor");
+window.addEventListener("mousemove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px"});
+document.querySelectorAll(".magnetic").forEach(el=>{
+ el.addEventListener("mousemove",e=>{
+   const r=el.getBoundingClientRect();
+   const x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);
+   el.style.transform=`translate(${x*.12}px,${y*.12}px)`;
+ });
+ el.addEventListener("mouseleave",()=>el.style.transform="");
+});
+document.querySelector(".menu").addEventListener("click",()=>document.querySelector(".navlinks").classList.toggle("show"));
+document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>document.querySelector(".navlinks").classList.remove("show")));
+</script>
+</body>
+</html>
